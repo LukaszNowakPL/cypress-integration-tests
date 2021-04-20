@@ -32,7 +32,9 @@ export const Header: React.FC = () => {
 
     return (
         <Box marginBottom={'20px'}>
-            <Heading as={'h1'} marginBottom={'40px'}>Cypress integration tests</Heading>
+            <Heading as={'h1'} marginBottom={'40px'}>
+                Cypress integration tests
+            </Heading>
             <Tabs variant={'enclosed'} isFitted onChange={setRoute} index={selectedTab}>
                 <TabList>
                     {tabs.map(tab => (
