@@ -32,10 +32,13 @@ export default function() {
         },
 
         routes() {
-            // Api testing
             this.get('/api/countries', schema => {
                 // @ts-ignore
                 return schema.countries.all();
+            });
+            this.get('/api/countries/:id', (schema, request) => {
+                // @ts-ignore
+                return schema.countries.where({id: request.params.id});
             });
             this.get('/api/countries/:id/airports', (schema, request) => {
                 // @ts-ignore
