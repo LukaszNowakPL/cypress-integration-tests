@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Tr, Td} from '@chakra-ui/react';
-import {CountryDto} from '../../../../api/countriesApi/countriesDto';
+import {CountryDto} from '../../../../api/countriesApi/countriesApi.types';
 import {generatePath, useHistory} from 'react-router';
 import {ROUTES} from '../../../../utils/routes';
 

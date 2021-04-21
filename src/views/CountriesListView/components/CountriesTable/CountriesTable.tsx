@@ -1,6 +1,6 @@
 import React from 'react';
 import {Table, Tbody, Th, Thead, Tr} from '@chakra-ui/react';
-import {CountryDto} from '../../../../api/countriesApi/countriesDto';
+import {CountryDto} from '../../../../api/countriesApi/countriesApi.types';
 import {CountriesTableRow} from './CountriesTableRow';
 
 interface CountriesTableProps {

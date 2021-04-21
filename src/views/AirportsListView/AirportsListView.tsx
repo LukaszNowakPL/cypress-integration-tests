@@ -4,13 +4,15 @@ import {useParams} from 'react-router';
 import {useCountry} from './hooks/useCountry';
 import {Spinner} from '../../components/Spinner/Spinner';
 import {Airports} from './components/Ariports/Airports';
+import {useIsFetching} from 'react-query';
 
 export const AirportsListView: React.FC = () => {
     const {countryId} = useParams<{countryId: string}>();
-    const {data: country, isFetching, error} = useCountry(countryId);
+    const {data: country, error} = useCountry(countryId);
+    const isFetching = useIsFetching();
     return (
         <Stack spacing={3}>
-            {isFetching && <Spinner />}
+            {isFetching > 0 && <Spinner />}
             {error && (
                 <Alert status="error">
                     <AlertIcon />

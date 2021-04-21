@@ -1,8 +1,8 @@
 import {Alert, AlertDescription, AlertIcon} from '@chakra-ui/react';
 import React from 'react';
-import {useCountriesList} from '../../hooks/useCountriesList';
 import {CountriesTable} from '../CountriesTable/CountriesTable';
 import {Spinner} from '../../../../components/Spinner/Spinner';
+import {useCountriesList} from '../../../../hooks/useCountriesList';
 
 export const Countries: React.FC = () => {
     const {data, error, isFetching} = useCountriesList();

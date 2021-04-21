@@ -18,6 +18,10 @@ const tabs: TabItem[] = [
         url: ROUTES.COUNTRIES_LIST,
         label: 'Countries',
     },
+    {
+        url: ROUTES.ADD_AIRPORT,
+        label: 'Add airport',
+    },
 ];
 
 export const Header: React.FC = () => {

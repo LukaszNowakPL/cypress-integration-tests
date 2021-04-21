@@ -1,5 +1,6 @@
 import {axios} from '../rest/axios';
-import {AirportDto, CountryDto} from './countriesDto';
+import {AirportDto, CountryDto} from './countriesApi.types';
+import {AirportForm} from './countriesApi.types';
 
 export const getCountriesList = async () => {
     const {data} = await axios.get<{countries: CountryDto[]}>('/countries');
@@ -14,4 +15,8 @@ export const getCountry = async (idCountry: string) => {
 export const getAirportsList = async (idCountry: string) => {
     const {data} = await axios.get<{airports: AirportDto[]}>(`/countries/${idCountry}/airports`);
     return data.airports;
+};
+
+export const postAirport = (idCountry: string, values: AirportForm) => {
+    return axios.post(`/countries/${idCountry}/airports`, values);
 };

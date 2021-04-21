@@ -6,6 +6,7 @@ import {HomePageView} from '../../views/HomePage/HomePageView';
 import {NotFoundView} from '../../views/NotFoundView/NotFoundView';
 import {CountriesListView} from '../../views/CountriesListView/CountriesListView';
 import {AirportsListView} from '../../views/AirportsListView/AirportsListView';
+import {NewAirportView} from '../../views/NewAirportView/NewAirportView';
 
 export const MainRouter: React.FC = () => {
     return (
@@ -18,6 +19,9 @@ export const MainRouter: React.FC = () => {
             </Route>
             <Route path={ROUTES.COUNTRIES_LIST}>
                 <CountriesListView />
+            </Route>
+            <Route path={ROUTES.ADD_AIRPORT}>
+                <NewAirportView />
             </Route>
             <Route>
                 <NotFoundView />

@@ -5,23 +5,21 @@ import {Box, ChakraProvider} from '@chakra-ui/react';
 import {Header} from '../Header/Header';
 import {MainRouter} from '../MainRouter/MainRouter';
 import {Footer} from '../Footer/Footer';
-import {QueryClient, QueryClientProvider} from 'react-query';
+import {ReactQueryContext} from '../../context/ReactQueryContext/ReactQueryContext';
 
 export const App: React.FC = () => {
     const basename = getBaseName();
-    // @ToDo: make it external
-    const queryClient = new QueryClient();
 
     return (
         <BrowserRouter basename={basename}>
             <ChakraProvider>
-                <QueryClientProvider client={queryClient}>
+                <ReactQueryContext>
                     <Box width={'80%'} mx={'auto'}>
                         <Header />
                         <MainRouter />
                         <Footer />
                     </Box>
-                </QueryClientProvider>
+                </ReactQueryContext>
             </ChakraProvider>
         </BrowserRouter>
     );
