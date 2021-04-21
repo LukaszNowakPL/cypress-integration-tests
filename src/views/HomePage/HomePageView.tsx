@@ -49,3 +49,5 @@ export const HomePageView: React.FC = () => {
         </Stack>
     );
 };
+
+export default HomePageView;

@@ -30,3 +30,5 @@ export const AirportsListView: React.FC = () => {
         </Stack>
     );
 };
+
+export default AirportsListView;

@@ -10,3 +10,5 @@ export const NotFoundView: React.FC = () => {
         </Center>
     );
 };
+
+export default NotFoundView;

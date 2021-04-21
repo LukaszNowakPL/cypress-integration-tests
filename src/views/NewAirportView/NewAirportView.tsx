@@ -38,3 +38,5 @@ export const NewAirportView: React.FC = () => {
         </Stack>
     );
 };
+
+export default NewAirportView;

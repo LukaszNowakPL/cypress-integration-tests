@@ -10,3 +10,5 @@ export const CountriesListView: React.FC = () => {
         </Stack>
     );
 };
+
+export default CountriesListView;
