@@ -19,9 +19,9 @@ export const Airlines: React.FC = () => {
     return (
         <FormControl data-test-id={'airlines-area'} id="airlineId" isInvalid={touched && !!error} isDisabled={isFieldDisabled} marginBottom={'10px'}>
             <FormLabel>Airlines</FormLabel>
-            <CheckboxGroup value={field.value} onChange={handleChange}>
+            <CheckboxGroup value={field.value} onChange={handleChange} isDisabled={isFieldDisabled}>
             <Stack>
-            {airlines?.map(airline => <Checkbox key={airline.id} value={airline.id} >{airline.name}</Checkbox>)}
+            {airlines?.map(airline => <Checkbox key={airline.id} value={airline.id}>{airline.name}</Checkbox>)}
             </Stack>
             </CheckboxGroup>
             <FormErrorMessage>{error}</FormErrorMessage>

@@ -25,7 +25,7 @@ export const PassengerServices: React.FC = () => {
             marginBottom={'10px'}
         >
             <FormLabel>Passenger services</FormLabel>
-            <CheckboxGroup value={field.value} onChange={handleChange}>
+            <CheckboxGroup value={field.value} onChange={handleChange} isDisabled={isFieldDisabled}>
                 <Stack>
                     {passengerServicesOptions.map(service => (
                         <Checkbox key={service.value} value={service.value}>

@@ -18,7 +18,7 @@ export const Notes: React.FC = () => {
             isDisabled={isFieldDisabled}
             marginBottom={'10px'}
         >
-            <FormLabel>Date of activation</FormLabel>
+            <FormLabel>Additional notes</FormLabel>
             <Textarea {...field} />
             <FormErrorMessage>{error}</FormErrorMessage>
         </FormControl>

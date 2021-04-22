@@ -1,3 +1,7 @@
+export interface CountriesResponse {
+    countries: CountryDto[];
+}
+
 export interface CountryDto {
     id: string;
     name: string;
@@ -39,9 +43,9 @@ export interface AirportForm {
     country_id: string;
     name: string;
     iata: string;
-    pax_amount: number;
-    airlines: number[];
-    average_delay: number;
+    pax_amount: string;
+    airlines: string[];
+    average_delay: string;
     ils_equipment: ILS;
     services: PASSENGER_SERVICE[];
     notes?: string;

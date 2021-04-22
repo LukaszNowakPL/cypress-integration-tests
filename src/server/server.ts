@@ -227,9 +227,10 @@ export default function() {
             });
             this.post('/api/countries/:id/airports', (schema, request) => {
                 // @ts-ignore
-                let attrs = {...JSON.parse(request.requestBody), country_id: request.params.id};
+                // let attrs = {...JSON.parse(request.requestBody), country_id: request.params.id};
                 // @ts-ignore
-                return schema.airports.create(attrs);
+                // return schema.airports.create(attrs);
+                return new Response(201, {}, {});
                 // return new Response(404, {"Content-Type" : "application/json"}, { error: `Some error message`});
             });
             this.get('/api/airlines', schema => {
