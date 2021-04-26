@@ -10,8 +10,12 @@ export const FormContainer: React.FC = ({children}) => {
     const history = useHistory();
     const {addAirport} = useAirportAddition();
     const handleSubmit = async (values: AirportModel) => {
-        await addAirport({idCountry: values.countryId, values});
-        history.push(generatePath(ROUTES.AIRPORTS_LIST, {countryId: values.countryId}));
+        try {
+            await addAirport({idCountry: values.countryId, values});
+            history.push(generatePath(ROUTES.AIRPORTS_LIST, {countryId: values.countryId}));
+        } catch (error) {
+            console.warn(error)
+        }
     };
 
     return (

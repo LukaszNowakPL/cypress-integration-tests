@@ -1,9 +1,10 @@
 {
-    "extends": "../tsconfig",
+    "extends": "../../tsconfig",
     "compilerOptions": {
         "target": "ES2019",
         "isolatedModules": false,
-        "jsx": "react"
+        "jsx": "react",
+        "types": ["cypress", "@testing-library/cypress"]
     },
     "include": ["**/*"]
 }

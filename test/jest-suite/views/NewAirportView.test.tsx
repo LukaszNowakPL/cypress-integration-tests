@@ -15,8 +15,7 @@ import {screen, waitFor, within} from '@testing-library/react';
 import userEvent from "@testing-library/user-event/dist";
 
 describe('NewAirportView', () => {
-    jest.setTimeout(30000)
-;
+    jest.setTimeout(30000);
     const renderComponent = () => {
         return renderWithContexts(<NewAirportView/>, {reactQuery: true, router: {path: ROUTES.ADD_AIRPORT, entries: ['/airports/add']}, chakra: true})
     };

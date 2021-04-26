@@ -9,7 +9,7 @@ interface AddAirportProps {
 }
 
 export const useAirportAddition = () => {
-    const {mutate: addAirport} = useMutation(
+    const {mutateAsync: addAirport} = useMutation(
         ({idCountry, values}: AddAirportProps) => postAirport(idCountry, mapAirportModelToForm(values)),
         {
             onSuccess: () => {
