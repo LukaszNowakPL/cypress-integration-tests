@@ -5,15 +5,6 @@ module.exports = {
     collectCoverageFrom: ['./src/**/*.{js,jsx,ts,tsx}'],
 
     projects: [
-        /*{
-            displayName: 'unit',
-            testEnvironment: 'node',
-            roots: ['test/unit'],
-            setupFilesAfterEnv: ['./test/jest-suite/setupJestDom.ts'],
-            moduleNameMapper: {
-                '\\.css$': 'identity-obj-proxy',
-            }
-        },*/
         {
             displayName: 'jest-suite',
             testEnvironment: 'jsdom',
@@ -23,6 +14,15 @@ module.exports = {
             setupFilesAfterEnv: ['./test/jest-suite/setupJestDom.ts'],
             moduleNameMapper: {
                 '\\css$': 'identity-obj-proxy',
+            },
+        },
+        {
+            displayName: 'playwright-suite',
+            roots: ['test/playwright-suite'],
+            preset: 'jest-playwright-preset',
+            setupFilesAfterEnv: ['./test/playwright-suite/setup.ts'],
+            transform: {
+                "^.+\\.(ts)$": "ts-jest",
             },
         },
     ],

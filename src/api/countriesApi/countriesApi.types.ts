@@ -2,9 +2,17 @@ export interface CountriesResponse {
     countries: CountryDto[];
 }
 
+export interface CountryResponse {
+    countries: [CountryDto]
+}
+
 export interface CountryDto {
     id: string;
     name: string;
+}
+
+export interface AirportsResponse {
+    airports: AirportDto[]
 }
 
 export interface AirportDto {

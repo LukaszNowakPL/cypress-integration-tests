@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "target": "ES2019",
+    "isolatedModules": false,
+    "jsx": "react",
+    "types": [
+      "@types/jest",
+      "jest-playwright-preset",
+      "expect-playwright"
+    ]
+  },
+  "include": ["**/*", "**/*.test.ts"]
+}

@@ -1,3 +1,5 @@
+/// <reference types="@testing-library/cypress" />
+
 import * as React from 'react';
 import NewAirportView from '../NewAirportView';
 import {ROUTES} from '../../../utils/routes';
