@@ -1,18 +1,24 @@
 /// <reference types="jest-playwright-preset" />
 /// <reference types="expect-playwright" />
 
+import { Mockiavelli } from 'mockiavelli';
 import {expect} from '@jest/globals';
 import {getDocument, queries, waitFor, within} from 'playwright-testing-library';
-import {interceptCountries} from '../../_helpers/interceptors/countriesApi';
-import {interceptAirlines} from '../../_helpers/interceptors/airlinesApi';
 import {airlinesDtoMock} from '../../_helpers/mocks/airlinesApi.mocks';
 import {countriesDtoMock} from '../../_helpers/mocks/countriesApi.mocks';
 
 test('shows validation errors on unvalidated fields', async () => {
     jest.setTimeout(25000);
+    const mockiavelli = await Mockiavelli.setup(page);
 
-    await interceptCountries(countriesDtoMock);
-    await interceptAirlines(airlinesDtoMock);
+    mockiavelli.mockGET('/api/countries', {
+        status: 200,
+        body: countriesDtoMock,
+    });
+    mockiavelli.mockGET('/api/airlines', {
+        status: 200,
+        body: airlinesDtoMock,
+    });
 
     await page.goto('http://localhost:3000/airports/add');
 

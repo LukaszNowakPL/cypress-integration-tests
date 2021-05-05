@@ -1,26 +1,36 @@
 /// <reference types="jest-playwright-preset" />
 /// <reference types="expect-playwright" />
 
+import { Mockiavelli } from 'mockiavelli';
 import {expect} from '@jest/globals';
 import {getDocument, queries, waitFor, within} from 'playwright-testing-library';
-import {
-    interceptCountries,
-    interceptCountry,
-    interceptCountryAirports,
-    interceptPostAirport,
-} from '../../_helpers/interceptors/countriesApi';
-import {interceptAirlines} from '../../_helpers/interceptors/airlinesApi';
 import {airlinesDtoMock} from '../../_helpers/mocks/airlinesApi.mocks';
 import {airportsDtoMock, countriesDtoMock, countryDtoMock, postAirportMinimumFormDataMock} from '../../_helpers/mocks/countriesApi.mocks';
 
 test('shows validation errors on unvalidated fields', async () => {
     jest.setTimeout(25000);
+    const mockiavelli = await Mockiavelli.setup(page);
 
-    await interceptCountries(countriesDtoMock);
-    await interceptAirlines(airlinesDtoMock);
-    await interceptPostAirport(1, postAirportMinimumFormDataMock);
-    await interceptCountry(1, countryDtoMock);
-    await interceptCountryAirports(1, airportsDtoMock);
+    mockiavelli.mockGET('/api/countries', {
+        status: 200,
+        body: countriesDtoMock,
+    });
+    mockiavelli.mockGET('/api/airlines', {
+        status: 200,
+        body: airlinesDtoMock,
+    });
+    const postAirportRequestMock = mockiavelli.mockPOST('/api/countries/1/airports', {
+        status: 200,
+        body: {},
+    });
+    mockiavelli.mockGET('/api/countries/1', {
+        status: 200,
+        body: countryDtoMock,
+    });
+    mockiavelli.mockGET('/api/countries/1/airports', {
+        status: 200,
+        body: airportsDtoMock,
+    });
 
     await page.goto('http://localhost:3000/airports/add');
 
@@ -47,6 +57,9 @@ test('shows validation errors on unvalidated fields', async () => {
 
     expect(await page.isEnabled('text="Send"')).toBeTruthy();
     await page.click('text="Send"');
+
+    const postAirportRequest = await postAirportRequestMock.waitForRequest();
+    expect(postAirportRequest.body).toEqual(postAirportMinimumFormDataMock);
 
     await page.waitForRequest('**/api/countries/1/airports');
 

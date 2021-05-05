@@ -63,11 +63,11 @@ export const postAirportFormDataMock: AirportForm = {
     ils_equipment: ILS.CATI_BOTH,
     services: [
         PASSENGER_SERVICE.FASTTRACK,
-        PASSENGER_SERVICE.AIPORT_HOTEL,
         PASSENGER_SERVICE.BOARDING_KIOSKS,
-        PASSENGER_SERVICE.OBSERVATION_DECK,
         PASSENGER_SERVICE.PUBLIC_TRANSPORT,
+        PASSENGER_SERVICE.OBSERVATION_DECK,
         PASSENGER_SERVICE.SHOWERS,
+        PASSENGER_SERVICE.AIPORT_HOTEL,
     ],
     notes: 'Additional test note',
 };
