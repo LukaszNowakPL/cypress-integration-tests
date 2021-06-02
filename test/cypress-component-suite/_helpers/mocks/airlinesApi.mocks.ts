@@ -1,4 +1,4 @@
-import {AirlinesResponse} from '../../../api/airlinesApi/airlinesApi.types';
+import {AirlinesResponse} from '../../../../src/api/airlinesApi/airlinesApi.types';
 
 export const airlinesDtoMock: AirlinesResponse = {
     airlines: [

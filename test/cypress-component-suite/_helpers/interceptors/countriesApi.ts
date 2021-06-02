@@ -1,4 +1,4 @@
-import {CountriesResponse} from '../../../api/countriesApi/countriesApi.types';
+import {CountriesResponse} from '../../../../src/api/countriesApi/countriesApi.types';
 
 export const interceptCountries = (response: CountriesResponse) => {
     cy.intercept(

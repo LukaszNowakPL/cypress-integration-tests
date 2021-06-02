@@ -1,4 +1,4 @@
-import {AirportForm, CountriesResponse, ILS, PASSENGER_SERVICE} from '../../../api/countriesApi/countriesApi.types';
+import {AirportForm, CountriesResponse, ILS, PASSENGER_SERVICE} from "../../../../src/api/countriesApi/countriesApi.types";
 
 export const countriesDtoMock: CountriesResponse = {
     countries: [

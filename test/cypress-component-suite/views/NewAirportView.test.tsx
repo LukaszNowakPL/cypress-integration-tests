@@ -1,17 +1,13 @@
 /// <reference types="@testing-library/cypress" />
 
 import * as React from 'react';
-import NewAirportView from '../NewAirportView';
-import {ROUTES} from '../../../utils/routes';
-import {mountWithContexts} from '../../../cypress/_helpers/mountWithContexts';
-import {
-    countriesDtoMock,
-    postAirportFormDataMock,
-    postAirportMinimumFormDataMock,
-} from '../../../cypress/_helpers/mocks/countriesApi.mocks';
-import {airlinesDtoMock} from '../../../cypress/_helpers/mocks/airlinesApi.mocks';
-import {interceptCountries, interceptPostAirport} from '../../../cypress/_helpers/interceptors/countriesApi';
-import {interceptAirlines} from '../../../cypress/_helpers/interceptors/airlinesApi';
+import NewAirportView from "../../../src/views/NewAirportView/NewAirportView";
+import {ROUTES} from '../../../src/utils/routes';
+import {mountWithContexts} from "../_helpers/mountWithContexts";
+import {countriesDtoMock, postAirportFormDataMock, postAirportMinimumFormDataMock} from "../_helpers/mocks/countriesApi.mocks";
+import {airlinesDtoMock} from "../_helpers/mocks/airlinesApi.mocks";
+import {interceptCountries, interceptPostAirport} from "../_helpers/interceptors/countriesApi";
+import {interceptAirlines} from "../_helpers/interceptors/airlinesApi";
 
 describe('Happy path', () => {
     it('fills form with full data and creates an airport', () => {
@@ -75,7 +71,7 @@ describe('Happy path', () => {
             .its('request.body')
             .should('deep.equal', postAirportFormDataMock);
     });
-    it('fills form with minumum data and creates an airport', () => {
+    it('fills form with minimum data and creates an airport', () => {
         const mountComponent = () => {
             return mountWithContexts(<NewAirportView />, {
                 reactQuery: true,

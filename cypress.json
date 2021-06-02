@@ -1,8 +1,9 @@
 {
     "testFiles": "cypress/integration/*.spec.js",
     "component": {
-        "componentFolder": "src",
-        "testFiles": "**/__tests__/*test.{js,jsx,ts,tsx}",
+        "__comment": "componentFolder is for location of test files",
+        "componentFolder": "test/cypress-component-suite",
+        "testFiles": "**/*test.{js,jsx,ts,tsx}",
         "viewportHeight": 500,
         "viewportWidth": 700
     }
