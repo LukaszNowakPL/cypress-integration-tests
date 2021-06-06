@@ -226,10 +226,9 @@ export default function() {
                 return schema.airports.where({country_id: request.params.id});
             });
             this.post('/api/countries/:id/airports', (schema, request) => {
+                let attrs = {...JSON.parse(request.requestBody), country_id: request.params.id};
                 // @ts-ignore
-                // let attrs = {...JSON.parse(request.requestBody), country_id: request.params.id};
-                // @ts-ignore
-                // return schema.airports.create(attrs);
+                schema.airports.create(attrs);
                 return new Response(201, {}, {});
                 // return new Response(404, {"Content-Type" : "application/json"}, { error: `Some error message`});
             });
