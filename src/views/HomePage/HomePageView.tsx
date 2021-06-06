@@ -5,7 +5,7 @@ export const HomePageView: React.FC = () => {
     return (
         <Stack spacing={3}>
             <Text>
-                This application is build to compare integration tests using <Code>Cypress</Code> and <Code>Jest + testing-library</Code>{' '}
+                This application is build to compare integration tests using <Code>Cypress</Code>, <Code>Playwright</Code> and <Code>Jest + testing-library</Code>{' '}
                 libraries.
             </Text>
             <Text>
@@ -41,10 +41,16 @@ export const HomePageView: React.FC = () => {
                 <ListItem>
                     <Code>Cypress</Code> for other approach of integration tests
                 </ListItem>
+                <ListItem>
+                    <Code>Playwright</Code> for yet another approach of bigger components testing
+                </ListItem>
+                <ListItem>
+                    <Code>Mockiavelli</Code> for mocking api calls on Playwright tests
+                </ListItem>
             </UnorderedList>
             <Text>
                 Application is build using <Code>Create React App</Code>. It also consumes <Code>React hooks</Code> approach as well as{' '}
-                <Code>lazy loading</Code> (experimental at the moment of coding an app).
+                <Code>lazy loading</Code> (still experimental feature).
             </Text>
         </Stack>
     );

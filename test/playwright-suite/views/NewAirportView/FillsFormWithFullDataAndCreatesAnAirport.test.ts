@@ -94,7 +94,8 @@ test('fills form with full data and creates an airport', async () => {
     const postAirportRequest = await postAirportRequestMock.waitForRequest();
     expect(postAirportRequest.body).toEqual(postAirportFormDataMock);
 
-    await page.waitForRequest('**/api/countries/1/airports');
+    await page.waitForResponse('**/api/countries/1/airports');
+    await page.waitForResponse('**/api/airlines');
 
     // Some confirmation message should appear nevertheless usage of toast() breaks tests
 

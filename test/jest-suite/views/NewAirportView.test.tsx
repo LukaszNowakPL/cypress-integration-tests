@@ -100,7 +100,7 @@ describe('NewAirportView', () => {
 
             // Some confirmation message should appear nevertheless usage of toast() breaks tests
 
-            await waitFor(() => expect(history?.entries).toHaveLength(2));
+            await waitFor(() => expect(history?.entries).toHaveLength(2), {timeout: 5000});
             expect(history?.location.pathname).toBe('/countries/1/airports')
         });
 

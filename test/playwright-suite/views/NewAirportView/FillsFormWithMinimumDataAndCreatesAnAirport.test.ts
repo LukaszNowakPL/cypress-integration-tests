@@ -61,7 +61,8 @@ test('shows validation errors on unvalidated fields', async () => {
     const postAirportRequest = await postAirportRequestMock.waitForRequest();
     expect(postAirportRequest.body).toEqual(postAirportMinimumFormDataMock);
 
-    await page.waitForRequest('**/api/countries/1/airports');
+    await page.waitForResponse('**/api/countries/1/airports');
+    await page.waitForResponse('**/api/airlines');
 
     // Some confirmation message should appear nevertheless usage of toast() breaks tests
 
